@@ -84,7 +84,7 @@ const ShopConfirmation = () => {
 
     try {
       const orderConfirmed = await axios.post(
-        "http://localhost:3001/checkout/addOrder",
+        "https://last-back-the-mobile-factory.onrender.com/checkout/addOrder",
         { id: user.id }
       );
       dispatch(resetProducts([]));

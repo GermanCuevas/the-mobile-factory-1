@@ -33,7 +33,7 @@ function CardItem() {
       });
     }
     try {
-      const productAdded = await axios.post(`http://localhost:3001/carrito`, {
+      const productAdded = await axios.post(`https://last-back-the-mobile-factory.onrender.com/carrito`, {
         productId: Number(device.id),
         customerId: Number(user.id),
         productQuantity: 1,
@@ -45,7 +45,7 @@ function CardItem() {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/products/${id}`).then((data) => {
+    axios.get(`https://last-back-the-mobile-factory.onrender.com/products/${id}`).then((data) => {
       setPhone(data);
     });
   }, [id]);

@@ -27,7 +27,7 @@ function GrillaDeProductos() {
   async function add(producto) {
     if (producto.shopQuantity < producto.stock) {
       try {
-        const productAdded = await axios.post(`http://localhost:3001/carrito`, {
+        const productAdded = await axios.post(`https://last-back-the-mobile-factory.onrender.com/carrito`, {
           productId: Number(producto.id),
           customerId: Number(user.id),
           productQuantity: 1,
@@ -58,7 +58,7 @@ function GrillaDeProductos() {
       });
     } else {
       try {
-        const productAdded = await axios.put(`http://localhost:3001/carrito`, {
+        const productAdded = await axios.put(`https://last-back-the-mobile-factory.onrender.com/carrito`, {
           productId: Number(producto.id),
           customerId: Number(user.id),
           productQuantity: Number(producto.shopQuantity) - 1,
@@ -73,7 +73,7 @@ function GrillaDeProductos() {
   async function deleteP(producto) {
     try {
       const productDeleted = await axios.delete(
-        `http://localhost:3001/carrito?productId=${producto.id}&customerId=${user.id}`
+        `https://last-back-the-mobile-factory.onrender.com/carrito?productId=${producto.id}&customerId=${user.id}`
       );
       dispatch(removeProduct(productDeleted.data));
       products.length === 1 && navigate("/");

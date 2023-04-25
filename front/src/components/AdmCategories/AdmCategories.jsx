@@ -46,7 +46,7 @@ const AdmCategories = () => {
     async function fetchData() {
       try {
         const categories = await axios.get(
-          `http://localhost:3001/admin/category/getCategorys?id=${user.id}`
+          `https://last-back-the-mobile-factory.onrender.com/admin/category/getCategorys?id=${user.id}`
         );
         dispatch(loginCategories(categories.data));
       } catch (error) {
@@ -61,7 +61,7 @@ const AdmCategories = () => {
   const cellEdit = async (updated, old) => {
     try {
       const updatedCategory = await axios.put(
-        `http://localhost:3001/admin/category/edit`,
+        `https://last-back-the-mobile-factory.onrender.com/admin/category/edit`,
         {
           id: user.id,
           previousName: old.name,
@@ -92,7 +92,7 @@ const AdmCategories = () => {
     try {
       catObj.forEach(async (obj) => {
         await axios.delete(
-          `http://localhost:3001/admin/category/delete?id=${user.id}&name=${obj.name}`
+          `https://last-back-the-mobile-factory.onrender.com/admin/category/delete?id=${user.id}&name=${obj.name}`
         );
       });
       dispatch(removeCategories(categoryToDelete));
@@ -109,7 +109,7 @@ const AdmCategories = () => {
     e.preventDefault();
     try {
       const newCategory = await axios.post(
-        `http://localhost:3001/admin/category/add`,
+        `https://last-back-the-mobile-factory.onrender.com/admin/category/add`,
         { id: user.id, name: newName, description: newDescription }
       );
       dispatch(addCategories(newCategory.data));
