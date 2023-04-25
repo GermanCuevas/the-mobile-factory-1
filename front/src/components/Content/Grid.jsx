@@ -25,20 +25,22 @@ function Grilla() {
   const [page, setPage] = useState(130);
   const [pagination, setPagination] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
     async function fetchDevices() {
       setIsLoading(true);
       const response = await fetch(
-        `http://localhost:3001/products?page=${page}`
+        `https://last-back-the-mobile-factory.onrender.com/products?page=${page}`,
+        { withCredentials: true, credentials: 'include' }
       );
       const data = await response.json();
       setDevices(data);
       setIsLoading(false);
       setPagination(true);
+
     }
     fetchDevices();
   }, [page]);
+
 
   return (
     <Paper

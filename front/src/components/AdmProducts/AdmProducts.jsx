@@ -22,7 +22,7 @@ const AdmProducts = () => {
     async function fetchData() {
       try {
         const products = await axios.get(
-          `http://localhost:3001/admin/products/allProducts?id=${user.id}`
+          `https://last-back-the-mobile-factory.onrender.com/admin/products/allProducts?id=${user.id}`
         );
         products.data.forEach((item) => {
           let brand = JSON.stringify(item.brand);
@@ -63,7 +63,7 @@ const AdmProducts = () => {
     console.log(allProductsRedux[0]);
     try {
       const updatedProduct = await axios.put(
-        `http://localhost:3001/admin/products/edit-product?idUser=${user.id}&idProduct=${updated.id}`,
+        `https://last-back-the-mobile-factory.onrender.com/admin/products/edit-product?idUser=${user.id}&idProduct=${updated.id}`,
         { updated }
       );
       dispatch(updateAllP(updated));
@@ -157,7 +157,7 @@ const AdmProducts = () => {
     try {
       prodObj.forEach(async (obj) => {
         await axios.delete(
-          `http://localhost:3001/admin/products/delete-product?id=${user.id}&idProduct=${obj.id}`
+          `https://last-back-the-mobile-factory.onrender.com/admin/products/delete-product?id=${user.id}&idProduct=${obj.id}`
         );
       });
       dispatch(removeAllP(productToDelete));
@@ -174,7 +174,7 @@ const AdmProducts = () => {
     e.preventDefault();
     try {
       const newProductBack = await axios.post(
-        `http://localhost:3001/admin/products/add-product?idUser=${user.id}`,
+        `https://last-back-the-mobile-factory.onrender.com/admin/products/add-product?idUser=${user.id}`,
         { newProduct }
       );
       dispatch(addAllP(newProductBack.data[0]));

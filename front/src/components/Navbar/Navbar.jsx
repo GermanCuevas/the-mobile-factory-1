@@ -44,7 +44,7 @@ const Navbar = () => {
     if (checked) {
       try {
         const productSearch = await axios.get(
-          `http://localhost:3001/search/category/${searchValue}`
+          `https://last-back-the-mobile-factory.onrender.com/search/category/${searchValue}`
         );
         dispatch(queryProducts(productSearch.data));
         navigate("/search");
@@ -54,7 +54,7 @@ const Navbar = () => {
     } else {
       try {
         const productSearch = await axios.get(
-          `http://localhost:3001/search?searchTerm=${searchValue}`
+          `https://last-back-the-mobile-factory.onrender.com/search?searchTerm=${searchValue}`
         );
         dispatch(queryProducts(productSearch.data));
         navigate("/search");
@@ -67,7 +67,7 @@ const Navbar = () => {
   const handleClick = async () => {
     try {
       await axios.post(
-        "http://localhost:3001/users/logout",
+        "https://last-back-the-mobile-factory.onrender.com/users/logout",
         {},
         { withCredentials: true }
       );

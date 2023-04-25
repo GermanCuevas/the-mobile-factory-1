@@ -18,7 +18,7 @@ function ShoppingHistory() {
   useEffect(() => {
     async function fetchUser() {
       const response = await fetch(
-        `http://localhost:3001/checkout/ordersOneUser/${user.id}`
+        `https://last-back-the-mobile-factory.onrender.com/checkout/ordersOneUser/${user.id}`
       );
       const data = await response.json();
       let arr = [];
@@ -34,7 +34,7 @@ function ShoppingHistory() {
 
     async function fetchAdmin() {
       const response = await fetch(
-        `http://localhost:3001/checkout/ordersUser/${user.id}`
+        `https://last-back-the-mobile-factory.onrender.com/checkout/ordersUser/${user.id}`
       );
       const data = await response.json();
       let arr = [];

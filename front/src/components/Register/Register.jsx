@@ -77,7 +77,7 @@ export const Register = () => {
     }
 
     axios
-      .post("http://localhost:3001/users/register", {
+      .post("https://last-back-the-mobile-factory.onrender.com/users/register", {
         full_name,
         email,
         password,

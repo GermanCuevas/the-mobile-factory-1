@@ -29,7 +29,7 @@ function ListSearch() {
 
   const handleCarrito = async (device) => {
     try {
-      const productAdded = await axios.post(`http://localhost:3001/carrito`, {
+      const productAdded = await axios.post(`https://last-back-the-mobile-factory.onrender.com/carrito`, {
         productId: Number(device.id),
         customerId: Number(user.id),
         productQuantity: 1,

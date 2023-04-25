@@ -19,7 +19,7 @@ function AdminView() {
     async function fetchData() {
       try {
         const customers = await axios.get(
-          `http://localhost:3001/admin/users/getUsers?id=${user.id}`
+          `https://last-back-the-mobile-factory.onrender.com/admin/users/getUsers?id=${user.id}`
         );
         dispatch(loginAllCust(customers.data));
       } catch (error) {
@@ -60,7 +60,7 @@ function AdminView() {
     }
     try {
       const updatedUser = await axios.put(
-        "http://localhost:3001/admin/users/add",
+        "https://last-back-the-mobile-factory.onrender.com/admin/users/add",
         { id: user.id, email: usr.email, old: usr.admin }
       );
       dispatch(updateAllCust(updatedUser.data));
@@ -76,7 +76,7 @@ function AdminView() {
     }
     try {
       const deletedUser = await axios.delete(
-        `http://localhost:3001/admin/users/deleteUser?id=${user.id}&email=${usr.email}`
+        `https://last-back-the-mobile-factory.onrender.com/admin/users/deleteUser?id=${user.id}&email=${usr.email}`
       );
       dispatch(removeAllCust(deletedUser.data[0]));
     } catch (error) {
